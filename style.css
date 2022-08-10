@@ -1,0 +1,71 @@
+.container {
+  width: calc(100% - 40px);
+  padding: 20px;
+}
+
+h1 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 28px;
+  text-align: center;
+}
+
+.sticker-add {
+  width: 100%;
+  padding-bottom: 30px;
+  border-bottom: 2px solid rgb(34, 95, 5);
+}
+
+.sticker-add__button {
+  padding: 10px 20px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: rgb(34, 95, 5);
+  background-color: transparent;
+  border: 2px solid rgb(34, 95, 5);
+  cursor: pointer;
+}
+
+.sticker-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-items: center;
+  padding-top: 20px;
+}
+
+.sticker-item {
+  position: relative;
+  margin: 5px;
+  padding: 20px;
+  background-color: rgb(150, 225, 115);
+}
+
+.sticker-item__text {
+  width: 260px;
+  height: 80px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+.sticker-item__delete {
+  position: absolute;
+  top: -9px;
+  right: -9px;
+  display: grid;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  place-items: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.sticker-item__delete::after {
+  content: "⨯";
+  font-size: 32px;
+}
