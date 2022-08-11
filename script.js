@@ -26,8 +26,8 @@ function onAddBtnClick() {
 };
 
 function onTextFieldFocusout(e) {
-  const $stickerEl = getElement($(e.target));
-  const id = getElementId($stickerEl);
+  const $stickerEl = getStickerEl($(e.target));
+  const id = getStickerElId($stickerEl);
   const stickerChanges = {
     description: e.target.value,
   };
@@ -39,8 +39,8 @@ function onTextFieldFocusout(e) {
 };
 
 function onDeleteBtnClick(e) {
-  const $stickerEl = getElement($(e.target));
-  const id = getElementId($stickerEl);
+  const $stickerEl = getStickerEl($(e.target));
+  const id = getStickerElId($stickerEl);
 
   StickersApi
     .delete(id)
@@ -62,10 +62,10 @@ function renderStickerItem(item) {
 };
 
 function replaceStickerElement(id, item) {
-  const oldStickerEl = getElementById(id);
+  const $oldStickerEl = getStickerElById(id);
   const newStickerEl = createStickerElement(item);
 
-  oldStickerEl.replaceWith(newStickerEl);
+  $oldStickerEl.replaceWith(newStickerEl);
 };
 
 function generateStickerHtml(item) {
@@ -78,22 +78,22 @@ function generateStickerHtml(item) {
 };
 
 function createStickerElement(item) {
-  const wrapperStickerEl = document.createElement('div');
+  const wrapperStickerEl = $('<div></div>');
 
-  wrapperStickerEl.innerHTML = generateStickerHtml(item);
+  wrapperStickerEl.append(generateStickerHtml(item));
 
-  return wrapperStickerEl.querySelector(STICKER_ITEM_EL);
+  return wrapperStickerEl.find(STICKER_ITEM_EL);
 };
 
-function getElement($el) {
+function getStickerEl($el) {
   return $el.closest(STICKER_ITEM_EL);
 };
 
-function getElementId($el) {
+function getStickerElId($el) {
   return $el.data('id');
 };
 
-function getElementById(id) {
+function getStickerElById(id) {
   $stickerEl = $('#sticker-list').find(`[data-id='${id}']`);
 
   return $stickerEl;
