@@ -63,9 +63,9 @@ function renderStickerItem(item) {
 
 function replaceStickerElement(id, item) {
   const $oldStickerEl = getStickerElById(id);
-  const newStickerEl = generateStickerHtml(item);
+  const newStickerHtml = generateStickerHtml(item);
 
-  $oldStickerEl.replaceWith(newStickerEl);
+  $oldStickerEl.replaceWith(newStickerHtml);
 };
 
 function generateStickerHtml(item) {
