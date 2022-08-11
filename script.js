@@ -63,7 +63,7 @@ function renderStickerItem(item) {
 
 function replaceStickerElement(id, item) {
   const $oldStickerEl = getStickerElById(id);
-  const newStickerEl = createStickerElement(item);
+  const newStickerEl = generateStickerHtml(item);
 
   $oldStickerEl.replaceWith(newStickerEl);
 };
@@ -75,14 +75,6 @@ function generateStickerHtml(item) {
       <textarea class="sticker-item__text" name="sticker-item-${item.id}" aria-label="text field">${item.description}</textarea>
     </div>
   `;
-};
-
-function createStickerElement(item) {
-  const wrapperStickerEl = $('<div></div>');
-
-  wrapperStickerEl.append(generateStickerHtml(item));
-
-  return wrapperStickerEl.find(STICKER_ITEM_EL);
 };
 
 function getStickerEl($el) {
